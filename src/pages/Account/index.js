@@ -155,6 +155,8 @@ export default function ({ navigation, route }) {
                             <View style={{ padding: 10, }}>
                                 <MyList label="Nama Lengkap" value={user.nama_lengkap} />
                                 <MyList label="ID" value={user.username} />
+                                <MyList label="Telepon" value={user.telepon} />
+                                <MyList label="Jabatan" value={user.jabatan} />
 
 
                             </View>

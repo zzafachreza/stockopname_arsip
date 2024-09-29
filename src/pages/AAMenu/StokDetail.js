@@ -101,32 +101,47 @@ export default function ({ navigation, route }) {
                     }}>{item.jumlah}</Text>
                 </View>
                 <MyGap jarak={20} />
-                <MyButton onPress={() => {
+                <View style={{
+                    flexDirection: 'row',
+                }}>
+                    <View style={{
+                        flex: 1,
+                        paddingRight: 10
+                    }}>
+                        <MyButton onPress={() => {
 
-                    Alert.alert(MYAPP, 'Apakah kamu yakin akan hapus ini ?', [
-                        {
-                            text: 'TIDAK'
-                        }, {
-                            text: 'HAPUS',
-                            onPress: () => {
-                                axios.post(apiURL + 'stok_delete', {
-                                    id: item.id
-                                }).then(res => {
-                                    console.log(res.data);
-                                    if (res.data == 200) {
-                                        showMessage({
-                                            message: 'Data berhasil di hapus !',
-                                            type: 'success'
-                                        });
-                                        navigation.goBack();
+                            Alert.alert(MYAPP, 'Apakah kamu yakin akan hapus ini ?', [
+                                {
+                                    text: 'TIDAK'
+                                }, {
+                                    text: 'HAPUS',
+                                    onPress: () => {
+                                        axios.post(apiURL + 'stok_delete', {
+                                            id: item.id
+                                        }).then(res => {
+                                            console.log(res.data);
+                                            if (res.data == 200) {
+                                                showMessage({
+                                                    message: 'Data berhasil di hapus !',
+                                                    type: 'success'
+                                                });
+                                                navigation.goBack();
+                                            }
+                                        })
                                     }
-                                })
-                            }
-                        }
-                    ])
+                                }
+                            ])
 
 
-                }} warna={colors.danger} title="Hapus" Icons="trash" colorText={colors.white} />
+                        }} warna={colors.danger} title="Hapus" Icons="trash" colorText={colors.white} />
+                    </View>
+                    <View style={{
+                        flex: 1,
+                        paddingLeft: 10,
+                    }}>
+                        <MyButton onPress={() => navigation.navigate('StokEdit', item)} title="Edit" Icons="create-outline" />
+                    </View>
+                </View>
 
 
 

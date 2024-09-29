@@ -39,6 +39,7 @@ export default function Register({ navigation }) {
         username: '',
         nama_lengkap: '',
         telepon: '',
+        jabatan: '',
         password: '',
         repassword: '',
 
@@ -166,6 +167,14 @@ export default function Register({ navigation }) {
                                 telepon: x
                             })
                         }} iconname='call' placeholder='Telepon' />
+                        <MyGap jarak={20} />
+                        <MyInput label='Jabatan' onChangeText={x => {
+                            setData({
+                                ...data,
+                                jabatan: x
+                            })
+                        }} iconname='ribbon' placeholder='Jabatan' />
+
                         <MyGap jarak={20} />
 
 

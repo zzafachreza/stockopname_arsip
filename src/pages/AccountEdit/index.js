@@ -119,6 +119,10 @@ export default function AccountEdit({ navigation, route }) {
                 <MyGap jarak={10} />
                 <MyInput label="Nama Lengkap" iconname="person-outline" value={kirim.nama_lengkap} onChangeText={x => setKirim({ ...kirim, nama_lengkap: x })} />
                 <MyGap jarak={10} />
+                <MyInput label="Telepon" iconname="call-outline" value={kirim.telepon} onChangeText={x => setKirim({ ...kirim, telepon: x })} />
+                <MyGap jarak={10} />
+                <MyInput label="Jabatan" iconname="ribbon-outline" value={kirim.jabatan} onChangeText={x => setKirim({ ...kirim, jabatan: x })} />
+                <MyGap jarak={10} />
                 <MyInput label="Password" iconname="lock-closed-outline" secureTextEntry={true} onChangeText={x => setKirim({ ...kirim, newpassword: x })} placeholder="Kosongkan jika tidak diubah" />
                 <MyGap jarak={20} />
                 {loading && <ActivityIndicator color={colors.primary} size="large" />}
