@@ -31,16 +31,28 @@ export default function ({ navigation, route }) {
         ) {
             Alert.alert(MYAPP, 'Formulir masih belum lengkap !')
         } else {
-            axios.post(apiURL + 'arsip_add', kirim).then(res => {
-                console.log(res.data);
-                if (res.data == 200) {
-                    showMessage({
-                        message: 'Data berhasil di simpan !',
-                        type: 'success'
-                    });
-                    navigation.goBack();
+
+            Alert.alert(MYAPP, 'Apakah Anda yakin untuk simpan data ini ?', [
+                { text: 'TIdak' },
+                {
+                    text: 'Ya',
+
+                    onPress: () => {
+                        axios.post(apiURL + 'arsip_add', kirim).then(res => {
+                            console.log(res.data);
+                            if (res.data == 200) {
+                                showMessage({
+                                    message: 'Data berhasil di simpan !',
+                                    type: 'success'
+                                });
+                                navigation.goBack();
+                            }
+                        })
+                    }
                 }
-            })
+            ])
+
+
         }
 
     }
